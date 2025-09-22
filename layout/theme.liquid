@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ request.locale.iso_code }}">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <link rel="canonical" href="{{ canonical_url }}">
-  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  {%- if settings.favicon != blank -%}
-    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
-  {%- endif -%}
-  
-  <title>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
     {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
-  </title>
-  
-  {% if page_description %}
-    <meta name="description" content="{{ page_description | escape }}">
-  {% endif %}
-  
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
   <!-- Tailwind CSS -->
   {{ 'tailwind.css' | asset_url | stylesheet_tag }}
   
@@ -30,8 +30,8 @@
   {{ 'theme.css' | asset_url | stylesheet_tag }}
   
   <!-- Shopify required content -->
-  {{ content_for_header }}
-  
+    {{ content_for_header }}
+
   <script>
     // Set viewport height variable for mobile browsers
     const setVh = () => {
@@ -40,24 +40,24 @@
     };
     window.addEventListener('resize', setVh);
     setVh();
-  </script>
-</head>
+    </script>
+  </head>
 
 <body class="flex flex-col min-h-screen bg-white">
   <a class="skip-to-content-link sr-only focus:not-sr-only" href="#MainContent">
     {{ "accessibility.skip_to_text" | t }}
   </a>
-  
-  {% section 'announcement-bar' %}
-  {% section 'header' %}
+
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
   
   <main id="MainContent" class="flex-grow" role="main" tabindex="-1">
-    {{ content_for_layout }}
-  </main>
-  
-  {% section 'footer' %}
-  
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
   <!-- Theme JavaScript -->
   {{ 'theme.js' | asset_url | script_tag }}
-</body>
+  </body>
 </html>
