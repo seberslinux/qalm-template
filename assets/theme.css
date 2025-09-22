@@ -1,0 +1,165 @@
+/* Theme CSS for Sense and Style */
+
+/* CSS Variables */
+:root {
+  --vh: 1vh;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sensory-primary: #6B73A1;
+  --sensory-secondary: #9BB5A8;
+  --sensory-accent: #D4A574;
+  --sensory-neutral: #F5F5F5;
+  --sensory-text: #2C3E50;
+  --sensory-text-light: #7F8C8D;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--sensory-text);
+}
+
+/* Skip to content link */
+.skip-to-content-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 8px 16px;
+  background: var(--sensory-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.skip-to-content-link:focus {
+  left: 6px;
+  top: 7px;
+}
+
+/* Sensory-friendly button styles */
+.sensory-button {
+  background-color: var(--sensory-primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sensory-button:hover {
+  background-color: var(--sensory-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 115, 161, 0.3);
+}
+
+.sensory-button:focus {
+  outline: 2px solid var(--sensory-accent);
+  outline-offset: 2px;
+}
+
+/* Sensory-friendly form inputs */
+.sensory-input {
+  border: 2px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  background-color: white;
+}
+
+.sensory-input:focus {
+  outline: none;
+  border-color: var(--sensory-primary);
+  box-shadow: 0 0 0 3px rgba(107, 115, 161, 0.1);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .sensory-button {
+    border: 2px solid currentColor;
+  }
+  
+  .sensory-input {
+    border-width: 3px;
+  }
+}
+
+/* Focus visible for better accessibility */
+.sensory-button:focus-visible,
+.sensory-input:focus-visible {
+  outline: 2px solid var(--sensory-accent);
+  outline-offset: 2px;
+}
+
+/* Utility classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Mobile viewport height fix */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+}
