@@ -157,8 +157,8 @@
             "heading_size": "h2"
           }
         },
-        "text": {
-          "type": "text",
+        "paragraph": {
+          "type": "paragraph",
           "settings": {
             "text": "<p>Subscribe to our newsletter for the latest sensory-friendly fashion updates and exclusive offers.<\/p>"
           }
@@ -166,7 +166,7 @@
       },
       "block_order": [
         "heading",
-        "text"
+        "paragraph"
       ],
       "settings": {
         "color_scheme": "scheme-1",
