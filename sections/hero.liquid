@@ -1,0 +1,104 @@
+<section class="w-full relative">
+  <div class="relative h-[80vh] overflow-hidden">
+    {% if section.settings.image != blank %}
+      <img srcset="{%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                   {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                   {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                   {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                   {%- if section.settings.image.width >= 2200 -%}{{ section.settings.image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                   {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | image_url: width: 3000 }} 3000w,{%- endif -%}"
+           src="{{ section.settings.image | image_url: width: 1500 }}"
+           sizes="100vw"
+           alt="{{ section.settings.image.alt | escape }}"
+           class="absolute inset-0 w-full h-full object-cover"
+           loading="eager">
+    {% else %}
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+           alt="Person wearing comfortable sensory-friendly clothing"
+           class="absolute inset-0 w-full h-full object-cover">
+    {% endif %}
+
+    <div class="absolute inset-0 bg-black bg-opacity-{{ section.settings.overlay_opacity | divided_by: 100.0 | times: 100 | round }}"></div>
+
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+      {% if section.settings.heading != blank %}
+        <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-light mb-4 max-w-3xl">
+          {{ section.settings.heading }}
+        </h1>
+      {% endif %}
+
+      {% if section.settings.subheading != blank %}
+        <p class="text-white text-lg md:text-xl mb-8 max-w-xl">
+          {{ section.settings.subheading }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <div>
+          <a href="{{ section.settings.button_link }}" 
+             class="bg-white text-black px-8 py-3 text-sm uppercase tracking-wider hover:bg-gray-100 transition-colors">
+            {{ section.settings.button_label }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Sense and Style",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Calming design for busy worlds",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Shop Now",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 20,
+      "label": "Overlay opacity",
+      "info": "Adjust the darkness of the image overlay"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "settings": {
+        "heading": "Sense and Style",
+        "subheading": "Calming design for busy worlds",
+        "button_label": "Shop Now"
+      }
+    }
+  ]
+}
+{% endschema %}
