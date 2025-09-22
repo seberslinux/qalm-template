@@ -1,79 +1,64 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
+      "type": "hero",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
             "heading": "Sense and Style",
-            "heading_size": "h0"
+            "heading_size": "h1"
           }
         },
-        "text": {
+        "subheading": {
           "type": "text",
           "settings": {
-            "text": "Sensory-friendly clothing for everyone",
-            "text_style": "body"
+            "text": "Calming design for busy worlds"
           }
         },
         "button": {
-          "type": "buttons",
+          "type": "button",
           "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label": "Shop Now",
+            "button_link": "/collections/all"
           }
         }
       },
       "block_order": [
         "heading",
-        "text",
+        "subheading",
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 30,
-        "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "image": "",
+        "overlay_opacity": 20
       }
     },
     "categories": {
-      "type": "multicolumn",
+      "type": "categories",
       "blocks": {
         "tops": {
-          "type": "column",
+          "type": "category",
           "settings": {
-            "title": "Tops",
-            "text": "<p>Comfortable and sensory-friendly tops for everyday wear<\/p>",
-            "link_label": "Shop Tops",
-            "link": "shopify://collections/tops"
+            "name": "Tops",
+            "image": "",
+            "link": "/collections/tops"
           }
         },
         "bottoms": {
-          "type": "column",
+          "type": "category",
           "settings": {
-            "title": "Bottoms",
-            "text": "<p>Soft and comfortable bottoms designed for comfort<\/p>",
-            "link_label": "Shop Bottoms",
-            "link": "shopify://collections/bottoms"
+            "name": "Bottoms",
+            "image": "",
+            "link": "/collections/bottoms"
           }
         },
         "accessories": {
-          "type": "column",
+          "type": "category",
           "settings": {
-            "title": "Accessories",
-            "text": "<p>Gentle accessories that complement your sensory-friendly wardrobe<\/p>",
-            "link_label": "Shop Accessories",
-            "link": "shopify://collections/accessories"
+            "name": "Accessories",
+            "image": "",
+            "link": "/collections/accessories"
           }
         }
       },
@@ -83,96 +68,42 @@
         "accessories"
       ],
       "settings": {
-        "title": "Shop by Category",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Shop by Category"
       }
     },
     "featured_products": {
-      "type": "featured-collection",
+      "type": "featured-products",
       "settings": {
-        "title": "Featured Products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 6,
-        "columns_desktop": 3,
-        "color_scheme": "scheme-1",
-        "show_view_all": true,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "heading": "Featured Products",
+        "description": "Designed with sensory comfort in mind, our products feature tagless designs, flat seams, and ultra-soft fabrics.",
+        "collection": "",
+        "products_to_show": 4,
+        "show_color_swatches": true,
+        "view_all_text": "View All Products",
+        "view_all_url": "/collections/all"
       }
     },
     "about": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "About Sense and Style",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We believe that everyone deserves comfortable, sensory-friendly clothing that makes them feel confident and at ease. Our carefully curated collection focuses on soft fabrics, tagless designs, and comfortable fits that work for people with sensory sensitivities.<\/p><p>Every piece in our collection is thoughtfully designed to minimize sensory overload while maximizing comfort and style.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+      "type": "about-section",
       "settings": {
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 40
+        "heading": "Our Sensory-Friendly Promise",
+        "paragraph1": "At SENSORY, we understand the unique challenges faced by individuals with sensory sensitivities. Our mission is to create clothing that feels as good as it looks, with an unwavering commitment to comfort, quality, and inclusivity.",
+        "paragraph2": "Every piece in our collection is thoughtfully designed with seamless construction, tag-free labels, ultra-soft fabrics, and adjustable features to accommodate various sensory needs. We believe that everyone deserves to feel comfortable in their own skin—and in their clothes.",
+        "button_text": "Learn More",
+        "button_url": "/pages/about",
+        "image": "",
+        "image_alt": "Person enjoying sensory-friendly clothing",
+        "image_position": "right"
       }
     },
     "newsletter": {
       "type": "newsletter",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Stay Updated",
-            "heading_size": "h2"
-          }
-        },
-        "paragraph": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Subscribe to our newsletter for the latest sensory-friendly fashion updates and exclusive offers.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "paragraph"
-      ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 40
+        "heading": "Join Our Community",
+        "description": "Subscribe to receive updates on new products, sensory-friendly tips, and exclusive offers.",
+        "button_text": "Subscribe",
+        "placeholder": "Your email address",
+        "disclaimer_text": "By subscribing, you agree to our Privacy Policy and consent to receive updates from SENSORY."
       }
     }
   },
