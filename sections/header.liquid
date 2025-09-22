@@ -1,134 +1,7 @@
-<div class="relative">
-  {% if section.settings.show_announcement %}
-    <div class="bg-black text-white py-2 text-center text-sm">
-      <div class="container mx-auto px-4">
-        {{ section.settings.announcement_text }}
-      </div>
-    </div>
-  {% endif %}
-
-  <header class="sticky top-0 z-50 bg-white border-b border-gray-100">
-    <div class="container mx-auto px-4 py-4 md:px-6">
-      <div class="flex items-center justify-between">
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden js-menu-toggle" aria-label="Menu" aria-expanded="false">
-          {% render 'icon-menu' %}
-        </button>
-
-        <!-- Logo -->
-        <div class="flex-1 md:flex-none text-center md:text-left">
-          <a href="/" class="inline-block">
-            {% if section.settings.logo != blank %}
-              <img src="{{ section.settings.logo | img_url: 'master' }}" 
-                   alt="{{ shop.name }}" 
-                   width="{{ section.settings.logo_width }}" 
-                   class="h-10 w-auto">
-            {% else %}
-              <span class="text-xl font-bold">{{ shop.name }}</span>
-            {% endif %}
-          </a>
-        </div>
-
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-8">
-          {% for link in linklists[section.settings.menu].links %}
-            <a href="{{ link.url }}" 
-               class="text-gray-600 hover:text-black transition-colors text-sm">
-              {{ link.title }}
-            </a>
-          {% endfor %}
-        </nav>
-
-        <!-- Icons -->
-        <div class="flex items-center space-x-4">
-          {% if section.settings.show_search %}
-            <a href="{{ routes.search_url }}" 
-               class="text-gray-600 hover:text-black transition-colors" 
-               aria-label="Search">
-              {% render 'icon-search' %}
-            </a>
-          {% endif %}
-
-          {% if section.settings.show_account %}
-            <a href="{{ routes.account_url }}" 
-               class="text-gray-600 hover:text-black transition-colors" 
-               aria-label="Account">
-              {% render 'icon-account' %}
-            </a>
-          {% endif %}
-
-          <a href="{{ routes.cart_url }}" 
-             class="text-gray-600 hover:text-black transition-colors relative js-cart-icon" 
-             aria-label="Cart">
-            {% render 'icon-cart' %}
-            <span class="absolute -top-1 -right-1 bg-black text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
-              {{ cart.item_count }}
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Mobile Menu (hidden by default) -->
-      <div class="mobile-menu hidden md:hidden pt-4 pb-3">
-        <nav class="flex flex-col space-y-3">
-          {% for link in linklists[section.settings.menu].links %}
-            <a href="{{ link.url }}" 
-               class="text-gray-600 hover:text-black transition-colors">
-              {{ link.title }}
-            </a>
-          {% endfor %}
-        </nav>
-      </div>
-    </div>
-  </header>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.js-menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-        const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-        menuToggle.setAttribute('aria-expanded', !expanded);
-        
-        // Change icon based on menu state
-        if (!expanded) {
-          menuToggle.innerHTML = '{% render "icon-close" %}';
-        } else {
-          menuToggle.innerHTML = '{% render "icon-menu" %}';
-        }
-      });
-    }
-
-    // Update cart count when items are added/removed
-    document.addEventListener('cart:updated', function(event) {
-      const cartCountElement = document.querySelector('.js-cart-icon span');
-      if (cartCountElement) {
-        cartCountElement.textContent = event.detail.cart.item_count;
-      }
-    });
-  });
-</script>
-
 {% schema %}
 {
   "name": "Header",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_announcement",
-      "label": "Show announcement bar",
-      "default": false
-    },
-    {
-      "type": "text",
-      "id": "announcement_text",
-      "label": "Announcement text",
-      "default": "Free shipping on all orders over $100"
-    },
     {
       "type": "image_picker",
       "id": "logo",
@@ -140,9 +13,9 @@
       "min": 50,
       "max": 250,
       "step": 10,
-      "default": 100,
       "unit": "px",
-      "label": "Logo width"
+      "label": "Logo width",
+      "default": 100
     },
     {
       "type": "link_list",
@@ -158,16 +31,106 @@
     },
     {
       "type": "checkbox",
-      "id": "show_account",
-      "label": "Show account",
+      "id": "sticky_header",
+      "label": "Sticky header",
       "default": true
-    }
-  ],
-  "presets": [
-    {
-      "name": "Header",
-      "category": "Header"
     }
   ]
 }
 {% endschema %}
+
+<header class="{% if section.settings.sticky_header %}sticky top-0{% endif %} z-50 bg-white border-b border-gray-100">
+  <div class="container mx-auto px-4 py-4 md:px-6">
+    <div class="flex items-center justify-between">
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-toggle" class="md:hidden" aria-label="Open menu">
+        {% render 'icon-menu' %}
+      </button>
+
+      <!-- Logo -->
+      <div class="flex-1 md:flex-none text-center md:text-left">
+        <a href="/" class="inline-block">
+          {% if section.settings.logo != blank %}
+            {{ section.settings.logo | image_url: width: section.settings.logo_width | image_tag: class: 'h-10 w-auto', alt: shop.name, width: section.settings.logo_width }}
+          {% else %}
+            <span class="text-xl font-bold">{{ shop.name }}</span>
+          {% endif %}
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        {% for link in section.settings.menu.links %}
+          <a href="{{ link.url }}" class="text-gray-600 hover:text-black transition-colors text-sm">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      </nav>
+
+      <!-- Icons -->
+      <div class="flex items-center space-x-4">
+        {% if section.settings.show_search %}
+          <button aria-label="Search" class="text-gray-600 hover:text-black transition-colors" id="search-toggle">
+            {% render 'icon-search' %}
+          </button>
+        {% endif %}
+        <a href="/account" class="text-gray-600 hover:text-black transition-colors" aria-label="Account">
+          {% render 'icon-account' %}
+        </a>
+        <a href="/cart" class="text-gray-600 hover:text-black transition-colors relative" aria-label="Cart">
+          {% render 'icon-cart' %}
+          <span class="absolute -top-1 -right-1 bg-black text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+            {{ cart.item_count }}
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden pt-4 pb-3 hidden">
+      <nav class="flex flex-col space-y-3">
+        {% for link in section.settings.menu.links %}
+          <a href="{{ link.url }}" class="text-gray-600 hover:text-black transition-colors">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+
+    <!-- Search Form -->
+    <div id="search-container" class="hidden pt-4">
+      <form action="/search" method="get" class="relative">
+        <input type="search" 
+               name="q" 
+               placeholder="Search..." 
+               class="w-full px-4 py-2 border border-gray-300 focus:border-black focus:outline-none">
+        <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2">
+          {% render 'icon-search' %}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const searchToggle = document.getElementById('search-toggle');
+      const searchContainer = document.getElementById('search-container');
+
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+          mobileMenuToggle.setAttribute('aria-label', mobileMenu.classList.contains('hidden') ? 'Open menu' : 'Close menu');
+          mobileMenuToggle.innerHTML = mobileMenu.classList.contains('hidden') ? `{% render 'icon-menu' %}` : `{% render 'icon-close' %}`;
+        });
+      }
+
+      if (searchToggle && searchContainer) {
+        searchToggle.addEventListener('click', function() {
+          searchContainer.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
+</header>
