@@ -57,6 +57,70 @@
         "show_text_below": false
       }
     },
+    "multicolumn_B3L8Dr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_rLcfTm": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>10,000+</strong>",
+            "text": "<p>Happy Customers<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_KQw4W6": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Therapist</strong>",
+            "text": "<p>Recommended<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PTgdKW": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>30-Day</strong>",
+            "text": "<p>Guarantee<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dywEDJ": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Made in</strong>",
+            "text": "<p>South Africa</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_rLcfTm",
+        "column_KQw4W6",
+        "column_PTgdKW",
+        "column_dywEDJ"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -262,70 +326,6 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
-      }
-    },
-    "multicolumn_B3L8Dr": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_rLcfTm": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>10,000+</strong>",
-            "text": "<p>Happy Customers<br/><br/></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_KQw4W6": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>Therapist</strong>",
-            "text": "<p>Recommended<br/><br/></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_PTgdKW": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>30-Day</strong>",
-            "text": "<p>Guarantee<br/><br/></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_dywEDJ": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>Made in</strong>",
-            "text": "<p>South Africa</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_rLcfTm",
-        "column_KQw4W6",
-        "column_PTgdKW",
-        "column_dywEDJ"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "Button label",
-        "button_link": "",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     }
   },
