@@ -327,6 +327,54 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "image_with_text_Ldc737": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_86kdDJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "\"I started this because my child deserved better\"",
+            "heading_size": "h1"
+          }
+        },
+        "text_ENNbBi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After years of watching my neurodivergent teen struggle with uncomfortable clothing that made school days harder, I realized there had to be a better way.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_FHiVze": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read Full Story",
+            "button_link": "shopify://pages/about-us",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_86kdDJ",
+        "text_ENNbBi",
+        "button_FHiVze"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/woman-tilts-her-head-back-and-smiles-outdoors.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -337,6 +385,7 @@
     "collage",
     "video",
     "multicolumn",
-    "rich_text_GgjEYT"
+    "rich_text_GgjEYT",
+    "image_with_text_Ldc737"
   ]
 }
