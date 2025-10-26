@@ -15,14 +15,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "",
-            "heading_size": "h0"
+            "heading": "<strong>Quiet Design For Busy Worlds</strong>",
+            "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "",
+            "text": "Mindfully crafted clothing that soothes your senses, supports your body, and brings calm to everyday life.",
             "text_style": "body"
           }
         },
@@ -90,6 +90,7 @@
         "text_e4VN3J",
         "button_wFnJpA"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
