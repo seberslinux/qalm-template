@@ -100,33 +100,74 @@
         "padding_bottom": 52
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "name": "Calming Collection",
+    "featured_product_yKhVK9": {
+      "type": "featured-product",
+      "blocks": {
+        "text_iwfHTi": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_irzNUz": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_P8NVbY": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_tDYira": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_WRC4LP": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_6Uwbka": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_cDqBQr": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_iwfHTi",
+        "title_irzNUz",
+        "price_P8NVbY",
+        "variant_picker_tDYira",
+        "quantity_selector_WRC4LP",
+        "buy_buttons_6Uwbka",
+        "share_cDqBQr"
+      ],
+      "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "collection": "all",
-        "products_to_show": 2,
-        "title": "<strong>Noise Reducing Hoodies</strong>",
-        "heading_size": "h1",
-        "description": "<p>Our specially designed science backed hoodies</p>",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 1,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
+        "product": "calm-focus-hoody-overhead",
         "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 60,
-        "padding_bottom": 64
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "media_position": "right",
+        "image_zoom": "hover",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "multicolumn_B3L8Dr": {
@@ -414,7 +455,7 @@
   "order": [
     "image_banner",
     "rich_text_aKnAjr",
-    "featured_collection",
+    "featured_product_yKhVK9",
     "multicolumn_B3L8Dr",
     "rich_text",
     "collage",
