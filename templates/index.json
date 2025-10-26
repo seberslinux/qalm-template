@@ -46,9 +46,9 @@
       "settings": {
         "image": "shopify://shop_images/model-with-leather-jacket-over-shoulders.jpg",
         "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
+        "image_height": "adapt",
+        "image_behavior": "zoom-in",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-3",
