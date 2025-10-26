@@ -106,7 +106,7 @@
         "text_iwfHTi": {
           "type": "text",
           "settings": {
-            "text": "{{ section.settings.product.vendor }}",
+            "text": "{{ section.settings.product.vendor }}This is",
             "text_style": "uppercase"
           }
         },
@@ -122,13 +122,15 @@
         },
         "variant_picker_tDYira": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
-            "picker_type": "button",
+            "picker_type": "dropdown",
             "swatch_shape": "circle"
           }
         },
         "quantity_selector_WRC4LP": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "buy_buttons_6Uwbka": {
@@ -140,6 +142,7 @@
         },
         "share_cDqBQr": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
@@ -158,8 +161,8 @@
       "settings": {
         "product": "calm-focus-hoody-overhead",
         "color_scheme": "scheme-1",
-        "secondary_background": false,
-        "media_size": "medium",
+        "secondary_background": true,
+        "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "cover",
         "media_position": "right",
@@ -168,6 +171,79 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "rich_text_9gFrDy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_w8MTmc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Science-Backed Sensory Comfort",
+            "heading_size": "h1"
+          }
+        },
+        "text_CzVbwn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our materials are engineered to reduce environmental noise across multiple frequency ranges, helping you feel more comfortable and focused throughout your day.</p>"
+          }
+        },
+        "button_FhVdVr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "shopify://pages/se",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_w8MTmc",
+        "text_CzVbwn",
+        "button_FhVdVr"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Sensory-Friendly Promise",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At SENSORY, we understand the unique challenges faced by individuals with sensory sensitivities. Our mission is to create clothing that feels as good as it looks, with an unwavering commitment to comfort, quality, and inclusivity.</p><p>Every piece in our collection is thoughtfully designed with seamless construction, tag-free labels, ultra-soft fabrics, and adjustable features to accommodate various sensory needs. We believe that everyone deserves to feel comfortable in their own skin—and in their clothes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
       }
     },
     "multicolumn_B3L8Dr": {
@@ -222,36 +298,6 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our Sensory-Friendly Promise",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At SENSORY, we understand the unique challenges faced by individuals with sensory sensitivities. Our mission is to create clothing that feels as good as it looks, with an unwavering commitment to comfort, quality, and inclusivity.</p><p>Every piece in our collection is thoughtfully designed with seamless construction, tag-free labels, ultra-soft fabrics, and adjustable features to accommodate various sensory needs. We believe that everyone deserves to feel comfortable in their own skin—and in their clothes.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
       }
     },
     "collage": {
@@ -450,18 +496,31 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "page_dL34J7": {
+      "type": "page",
+      "name": "t:sections.page.presets.name",
+      "settings": {
+        "page": "se",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "image_banner",
     "rich_text_aKnAjr",
     "featured_product_yKhVK9",
-    "multicolumn_B3L8Dr",
+    "rich_text_9gFrDy",
     "rich_text",
+    "multicolumn_B3L8Dr",
     "collage",
     "video",
     "multicolumn",
     "rich_text_GgjEYT",
-    "image_with_text_Ldc737"
+    "image_with_text_Ldc737",
+    "page_dL34J7"
   ]
 }
