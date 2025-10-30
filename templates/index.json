@@ -484,7 +484,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/woman-tilts-her-head-back-and-smiles-outdoors.jpg",
+        "image": "shopify://shop_images/Weightedcollarchild_Blusss_2Y5A5869_1366x2048_5e015f81-7b3f-4f86-81ce-b376ee648396.webp",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -503,7 +503,7 @@
       "type": "featured-blog",
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
-        "blog": "",
+        "blog": "news",
         "post_limit": 3,
         "heading": "News",
         "heading_size": "h1",
