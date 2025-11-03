@@ -341,21 +341,6 @@
         "padding_bottom": 36
       }
     },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video": "shopify://files/videos/2711092-uhd_3840_2160_24fps.mp4",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "multicolumn": {
       "type": "multicolumn",
       "blocks": {
@@ -527,7 +512,6 @@
     "rich_text",
     "multicolumn_B3L8Dr",
     "collage",
-    "video",
     "multicolumn",
     "rich_text_GgjEYT",
     "image_with_text_Ldc737",
