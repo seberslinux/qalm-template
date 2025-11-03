@@ -347,6 +347,7 @@
         "heading": "",
         "heading_size": "h1",
         "enable_video_looping": false,
+        "video": "shopify://files/videos/2711092-uhd_3840_2160_24fps.mp4",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
         "full_width": false,
