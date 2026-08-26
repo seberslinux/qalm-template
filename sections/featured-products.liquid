@@ -1,0 +1,98 @@
+<section class="py-20 px-4 md:px-6 bg-gray-50">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-light text-center mb-4">
+      {{ section.settings.heading }}
+    </h2>
+    
+    {% if section.settings.description != blank %}
+      <p class="text-gray-600 text-center mb-12 max-w-xl mx-auto">
+        {{ section.settings.description }}
+      </p>
+    {% endif %}
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {% if section.settings.collection != blank %}
+        {% assign collection = collections[section.settings.collection] %}
+        {% for product in collection.products limit: section.settings.products_to_show %}
+          {% render 'product-card', product: product, show_colors: section.settings.show_color_swatches %}
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+          <div class="group">
+            <div class="relative overflow-hidden mb-4 bg-gray-200 h-[400px] flex items-center justify-center">
+              <span class="text-gray-500">Select a collection in theme settings</span>
+            </div>
+            <h3 class="text-lg font-light bg-gray-200 h-6 w-3/4 mb-2"></h3>
+            <p class="text-gray-700 mb-2 bg-gray-200 h-4 w-1/4"></p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    
+    {% if section.settings.view_all_url != blank %}
+      <div class="text-center mt-12">
+        <a href="{{ section.settings.view_all_url }}" 
+           class="inline-block border border-black px-8 py-3 text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-colors">
+          {{ section.settings.view_all_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Products"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Designed with sensory comfort in mind, our products feature tagless designs, flat seams, and ultra-soft fabrics."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatches",
+      "label": "Show color swatches",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View all button text",
+      "default": "View All Products"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View all button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}

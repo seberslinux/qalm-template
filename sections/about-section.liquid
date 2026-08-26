@@ -1,0 +1,110 @@
+<section class="py-20 px-4 md:px-6">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="{% if section.settings.image_position == 'right' %}order-2 lg:order-1{% else %}order-2 lg:order-2{% endif %}">
+        <h2 class="text-3xl font-light mb-6">
+          {{ section.settings.heading }}
+        </h2>
+        
+        {% if section.settings.paragraph1 != blank %}
+          <p class="text-gray-600 mb-6">
+            {{ section.settings.paragraph1 }}
+          </p>
+        {% endif %}
+        
+        {% if section.settings.paragraph2 != blank %}
+          <p class="text-gray-600 mb-8">
+            {{ section.settings.paragraph2 }}
+          </p>
+        {% endif %}
+        
+        {% if section.settings.button_url != blank and section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_url }}" 
+             class="inline-block border border-black px-8 py-3 text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-colors">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+      
+      <div class="{% if section.settings.image_position == 'right' %}order-1 lg:order-2{% else %}order-1 lg:order-1{% endif %}">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: section.settings.image_alt, class: 'w-full h-auto' }}
+        {% else %}
+          <div class="w-full aspect-[4/3] bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-500">Select an image</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Sensory-Friendly Promise"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph1",
+      "label": "First Paragraph",
+      "default": "At SENSORY, we understand the unique challenges faced by individuals with sensory sensitivities. Our mission is to create clothing that feels as good as it looks, with an unwavering commitment to comfort, quality, and inclusivity."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph2",
+      "label": "Second Paragraph",
+      "default": "Every piece in our collection is thoughtfully designed with seamless construction, tag-free labels, ultra-soft fabrics, and adjustable features to accommodate various sensory needs. We believe that everyone deserves to feel comfortable in their own skin—and in their clothes."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Person enjoying sensory-friendly clothing"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Section",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,198 @@
+{% schema %}
+{
+  "name": "Product grid",
+  "tag": "section",
+  "class": "collection-grid py-12",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 4,
+      "max": 48,
+      "step": 4,
+      "default": 16,
+      "label": "Products per page"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Desktop columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatches",
+      "label": "Show color swatches",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "label": "Enable filtering",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "label": "Enable sorting",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+
+<div class="container mx-auto px-4 md:px-6">
+  {% paginate collection.products by section.settings.products_per_page %}
+    <div class="flex flex-col lg:flex-row gap-8">
+      {% if section.settings.enable_filtering %}
+        <div class="lg:w-1/4 xl:w-1/5">
+          <div class="sticky top-24">
+            <div class="mb-8">
+              <h2 class="text-lg font-medium mb-4">Filter by</h2>
+              {% for filter in collection.filters %}
+                <details class="group mb-4">
+                  <summary class="flex items-center justify-between cursor-pointer py-2 border-b border-gray-200">
+                    <span class="text-sm font-medium">{{ filter.label }}</span>
+                    <span class="transform group-open:rotate-180 transition-transform">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-4 pb-2 pl-4">
+                    <ul class="space-y-2">
+                      {% for value in filter.values %}
+                        <li>
+                          <a href="{{ value.url }}" class="block text-sm {% if value.active %}font-medium text-black{% else %}text-gray-600 hover:text-black{% endif %}">
+                            {{ value.label }} ({{ value.count }})
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </details>
+              {% endfor %}
+            </div>
+
+            {% if collection.current_vendor or collection.current_type %}
+              <div class="mb-8">
+                <h2 class="text-lg font-medium mb-4">Active filters</h2>
+                <ul class="flex flex-wrap gap-2">
+                  {% if collection.current_vendor %}
+                    <li>
+                      <a href="{{ collection.url }}" class="inline-flex items-center px-3 py-1 bg-gray-100 text-sm hover:bg-gray-200">
+                        {{ collection.current_vendor }} &times;
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if collection.current_type %}
+                    <li>
+                      <a href="{{ collection.url }}" class="inline-flex items-center px-3 py-1 bg-gray-100 text-sm hover:bg-gray-200">
+                        {{ collection.current_type }} &times;
+                      </a>
+                    </li>
+                  {% endif %}
+                </ul>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="{% if section.settings.enable_filtering %}lg:w-3/4 xl:w-4/5{% endif %}">
+        {% if section.settings.enable_sorting %}
+          <div class="flex justify-end mb-6">
+            <div class="relative">
+              <select id="SortBy" class="appearance-none px-4 py-2 pr-8 border border-gray-300 focus:border-black focus:outline-none text-sm">
+                <option value="manual">Featured</option>
+                <option value="price-ascending">Price: Low to High</option>
+                <option value="price-descending">Price: High to Low</option>
+                <option value="title-ascending">Alphabetically: A-Z</option>
+                <option value="title-descending">Alphabetically: Z-A</option>
+                <option value="created-ascending">Date: Old to New</option>
+                <option value="created-descending">Date: New to Old</option>
+                <option value="best-selling">Best Selling</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-{{ section.settings.columns_desktop }} gap-8">
+          {% for product in collection.products %}
+            {% render 'product-card', product: product, show_colors: section.settings.show_color_swatches %}
+          {% else %}
+            <div class="col-span-full text-center py-12">
+              <p>No products found in this collection</p>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <div class="pagination flex justify-center items-center space-x-4 mt-12">
+            {% if paginate.previous %}
+              <a href="{{ paginate.previous.url }}" class="px-4 py-2 border border-gray-300 text-sm hover:border-black">
+                Previous
+              </a>
+            {% else %}
+              <span class="px-4 py-2 border border-gray-200 text-gray-400 text-sm cursor-not-allowed">
+                Previous
+              </span>
+            {% endif %}
+            <span class="text-sm">
+              Page {{ paginate.current_page }} of {{ paginate.pages }}
+            </span>
+            {% if paginate.next %}
+              <a href="{{ paginate.next.url }}" class="px-4 py-2 border border-gray-300 text-sm hover:border-black">
+                Next
+              </a>
+            {% else %}
+              <span class="px-4 py-2 border border-gray-200 text-gray-400 text-sm cursor-not-allowed">
+                Next
+              </span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endpaginate %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Sort by functionality
+    const sortBySelect = document.getElementById('SortBy');
+    if (sortBySelect) {
+      // Set initial value based on current sort order
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('sort_by')) {
+        sortBySelect.value = urlParams.get('sort_by');
+      }
+
+      // Add change event listener
+      sortBySelect.addEventListener('change', function() {
+        const url = new URL(window.location.href);
+        url.searchParams.set('sort_by', this.value);
+        window.location.href = url.toString();
+      });
+    }
+  });
+</script>

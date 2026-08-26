@@ -1,210 +1,117 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "hero",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
+            "heading": "Sense and Style",
             "heading_size": "h1"
           }
         },
-        "text": {
+        "subheading": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "Calming design for busy worlds"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "/collections/all"
           }
         }
       },
       "block_order": [
         "heading",
-        "text"
+        "subheading",
+        "button"
       ],
       "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "image": "",
+        "overlay_opacity": 20
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "background-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
+    "categories": {
+      "type": "categories",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "tops": {
+          "type": "category",
           "settings": {
-            "collection": ""
+            "name": "Tops",
+            "image": "",
+            "link": "/collections/tops"
           }
         },
-        "product": {
-          "type": "product",
+        "bottoms": {
+          "type": "category",
           "settings": {
-            "product": "",
-            "second_image": false
+            "name": "Bottoms",
+            "image": "",
+            "link": "/collections/bottoms"
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "accessories": {
+          "type": "category",
           "settings": {
-            "collection": ""
+            "name": "Accessories",
+            "image": "",
+            "link": "/collections/accessories"
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "tops",
+        "bottoms",
+        "accessories"
       ],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Shop by Category"
       }
     },
-    "video": {
-      "type": "video",
+    "featured_products": {
+      "type": "featured-products",
       "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Featured Products",
+        "description": "Designed with sensory comfort in mind, our products feature tagless designs, flat seams, and ultra-soft fabrics.",
+        "collection": "",
+        "products_to_show": 4,
+        "show_color_swatches": true,
+        "view_all_text": "View All Products",
+        "view_all_url": "/collections/all"
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+    "about": {
+      "type": "about-section",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Our Sensory-Friendly Promise",
+        "paragraph1": "At SENSORY, we understand the unique challenges faced by individuals with sensory sensitivities. Our mission is to create clothing that feels as good as it looks, with an unwavering commitment to comfort, quality, and inclusivity.",
+        "paragraph2": "Every piece in our collection is thoughtfully designed with seamless construction, tag-free labels, ultra-soft fabrics, and adjustable features to accommodate various sensory needs. We believe that everyone deserves to feel comfortable in their own skin—and in their clothes.",
+        "button_text": "Learn More",
+        "button_url": "/pages/about",
+        "image": "",
+        "image_alt": "Person enjoying sensory-friendly clothing",
+        "image_position": "right"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join Our Community",
+        "description": "Subscribe to receive updates on new products, sensory-friendly tips, and exclusive offers.",
+        "button_text": "Subscribe",
+        "placeholder": "Your email address",
+        "disclaimer_text": "By subscribing, you agree to our Privacy Policy and consent to receive updates from SENSORY."
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "hero",
+    "categories",
+    "featured_products",
+    "about",
+    "newsletter"
   ]
 }

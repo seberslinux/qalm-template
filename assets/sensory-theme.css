@@ -1,0 +1,214 @@
+/* Sensory-Friendly Theme Styles for Sense and Style */
+
+/* Soft, calming color palette */
+:root {
+    --sensory-primary: #6B73A1;
+    --sensory-secondary: #9BB5A8;
+    --sensory-accent: #D4A574;
+    --sensory-neutral: #F5F5F5;
+    --sensory-text: #2C3E50;
+    --sensory-text-light: #7F8C8D;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Sensory-friendly button styles */
+.sensory-button {
+    background-color: var(--sensory-primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sensory-button:hover {
+    background-color: var(--sensory-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 115, 161, 0.3);
+}
+
+.sensory-button:focus {
+    outline: 3px solid var(--sensory-accent);
+    outline-offset: 2px;
+}
+
+/* Soft, rounded corners for cards */
+.sensory-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.sensory-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Gentle typography */
+.sensory-heading {
+    color: var(--sensory-text);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.sensory-text {
+    color: var(--sensory-text-light);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Sensory-friendly form inputs */
+.sensory-input {
+    border: 2px solid var(--sensory-neutral);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.sensory-input:focus {
+    border-color: var(--sensory-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(107, 115, 161, 0.1);
+}
+
+/* Soft navigation styles */
+.sensory-nav {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sensory-nav-link {
+    color: var(--sensory-text);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.sensory-nav-link:hover {
+    background-color: var(--sensory-neutral);
+    color: var(--sensory-primary);
+}
+
+/* Product card enhancements */
+.product-card-sensory {
+    border: 1px solid var(--sensory-neutral);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-card-sensory:hover {
+    border-color: var(--sensory-primary);
+    box-shadow: 0 4px 12px rgba(107, 115, 161, 0.15);
+}
+
+/* Color swatches with better contrast */
+.color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Accessibility improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .sensory-button {
+        border: 2px solid currentColor;
+    }
+
+    .sensory-card {
+        border: 2px solid var(--sensory-text);
+    }
+}
+
+/* Focus indicators for keyboard navigation */
+.focus-visible {
+    outline: 3px solid var(--sensory-accent);
+    outline-offset: 2px;
+}
+
+/* Sensory-friendly spacing */
+.sensory-section {
+    padding: 48px 0;
+}
+
+.sensory-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Soft gradients for backgrounds */
+.sensory-gradient {
+    background: linear-gradient(135deg, var(--sensory-neutral) 0%, #ffffff 100%);
+}
+
+/* Gentle animations */
+@keyframes gentle-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sensory-animate {
+    animation: gentle-fade-in 0.6s ease-out;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .sensory-container {
+        padding: 0 16px;
+    }
+
+    .sensory-section {
+        padding: 32px 0;
+    }
+
+    .sensory-button {
+        width: 100%;
+        padding: 16px 24px;
+    }
+}

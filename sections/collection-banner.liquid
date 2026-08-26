@@ -1,0 +1,75 @@
+{% schema %}
+{
+  "name": "Collection banner",
+  "tag": "section",
+  "class": "collection-banner py-12",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "label": "Show collection image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "label": "Show collection description",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "banner_height",
+      "label": "Banner height",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign banner_height_class = "h-40" %}
+{% if section.settings.banner_height == "medium" %}
+  {% assign banner_height_class = "h-60" %}
+{% elsif section.settings.banner_height == "large" %}
+  {% assign banner_height_class = "h-80" %}
+{% endif %}
+
+<div class="container mx-auto px-4 md:px-6">
+  <div class="relative {{ banner_height_class }} overflow-hidden mb-8">
+    {% if collection.image and section.settings.show_collection_image %}
+      <img
+        src="{{ collection.image | image_url: width: 1500 }}"
+        alt="{{ collection.title | escape }}"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+    {% else %}
+      <div class="absolute inset-0 bg-gray-100"></div>
+    {% endif %}
+
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+      <h1 class="{% if collection.image and section.settings.show_collection_image %}text-white{% else %}text-black{% endif %} text-4xl md:text-5xl lg:text-6xl font-light mb-4 max-w-3xl">
+        {{ collection.title }}
+      </h1>
+      {% if collection.description != blank and section.settings.show_collection_description %}
+        <div class="{% if collection.image and section.settings.show_collection_image %}text-white{% else %}text-gray-600{% endif %} text-lg md:text-xl max-w-xl">
+          {{ collection.description }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
