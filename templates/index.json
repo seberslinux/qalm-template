@@ -308,6 +308,7 @@
         "column1": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/Qalm_Column_FidgetPoppers.jpg",
             "title": "Column",
             "text": "<p>PLACE HOLDER: MORE INFO TO COME</p>",
             "link_label": "",
