@@ -22,18 +22,18 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Mindfully crafted clothing that soothes your senses, supports your body, and brings calm to everyday life.",
+            "text": "Sensory-friendly T-shirts and polos for children who feel everything a little more. Coming soon, ages 4 to 16.",
             "text_style": "body"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/all",
+            "button_label_1": "Register your interest",
+            "button_link_1": "https://forms.gle/zS3Cy21Xu1YMD7kt8",
             "button_style_secondary_1": true,
-            "button_label_2": "Learn More",
-            "button_link_2": "shopify://pages/se",
+            "button_label_2": "Our story",
+            "button_link_2": "shopify://pages/about-us",
             "button_style_secondary_2": true
           }
         }
